@@ -1,0 +1,25 @@
+{
+  "service": [
+    {
+      "id": "nginx-local",
+      "name": "nginx-local",
+      "tags": [
+        "docker-api"
+      ],
+      "address": "127.0.0.1",
+      "port": 80,
+      "checks": [
+        {
+          "http": "http://127.0.0.1",
+          "tls_skip_verify": false,
+          "method": "GET",
+          "header": {
+            "Content-Type": ["application/json"]
+          },
+          "interval": "1s",
+          "timeout": "2s"
+        }
+      ]
+    }
+  ]
+}

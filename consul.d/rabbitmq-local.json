@@ -1,0 +1,13 @@
+{
+  "service": [
+    {
+      "id": "rabbitmq-local",
+      "name": "rabbitmq-local",
+      "tags": [
+        "docker-api"
+      ],
+      "address": "127.0.0.1",
+      "port": 5672
+    }
+  ]
+}

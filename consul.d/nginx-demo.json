@@ -1,0 +1,25 @@
+{
+  "service": [
+    {
+      "id": "nginx-demo",
+      "name": "nginx-demo",
+      "tags": [
+        "docker-api"
+      ],
+      "address": "https://demo.nginx.com/api/5/http/requests",
+      "port": 80,
+      "checks": [
+        {
+          "http": "https://demo.nginx.com/api/5/http/requests",
+          "tls_skip_verify": false,
+          "method": "GET",
+          "header": {
+            "Content-Type": ["application/json"]
+          },
+          "interval": "1s",
+          "timeout": "2s"
+        }
+      ]
+    }
+  ]
+}
