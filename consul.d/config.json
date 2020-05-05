@@ -1,0 +1,72 @@
+{
+  "services": [
+    {
+      "id": "nginx-demo",
+      "name": "nginx",
+      "tags": [
+        "docker-api"
+      ],
+      "address": "https://demo.nginx.com",
+      "port": 80,
+      "checks": [
+        {
+          "http": "https://demo.nginx.com/api/5/http/requests",
+          "tls_skip_verify": false,
+          "method": "GET",
+          "header": {
+            "Content-Type": [
+              "application/json"
+            ]
+          },
+          "interval": "1s",
+          "timeout": "2s"
+        }
+      ]
+    },
+    {
+      "id": "nginx-local",
+      "name": "nginx",
+      "tags": [
+        "docker-api"
+      ],
+      "address": "127.0.0.1",
+      "port": 80,
+      "checks": [
+        {
+          "args": [
+            "curl",
+            "127.0.0.1"
+          ],
+          "interval": "3s"
+        }
+      ]
+    },
+    {
+      "id": "rabbitmq-local",
+      "name": "rabbitmq",
+      "tags": [
+        "docker-api"
+      ],
+      "address": "127.0.0.1",
+      "port": 5672
+    },
+    {
+      "id": "redis-local",
+      "name": "redis",
+      "tags": [
+        "docker-api"
+      ],
+      "address": "127.0.0.1",
+      "port": 16379
+    },
+    {
+      "id": "redis-bss",
+      "name": "redis",
+      "tags": [
+        "docker-api"
+      ],
+      "address": "web.beesightsoft.com",
+      "port": 16379
+    }
+  ]
+}

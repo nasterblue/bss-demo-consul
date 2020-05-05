@@ -1,3 +1,7 @@
+# Multiple Service Definitions
+
+https://www.consul.io/docs/agent/services.html#multiple-service-definitions
+
 #Docker Compose
 ```bash
 nasterblue-2:consul nasterblue$ docker-compose  up -d
@@ -17,6 +21,10 @@ Start the agent as a server
 sudo kill -9 $(sudo lsof -t -i:8300)
 sudo kill -9 $(sudo lsof -t -i:8600)
 sudo kill -9 $(sudo lsof -t -i:8500)
+sudo kill -9 $(sudo lsof -t -i:6379)
+sudo lsof -i tcp:6379 
+ps -ef | grep -i 'redis-server'
+ps auxx | grep redis-server
 
 
 docker run  -d  -p 8500:8500 -p 8600:8600/udp  -v /Volumes/DATA/resources/pilot/consul/consul.d/:/consul/config --name=consul   consul

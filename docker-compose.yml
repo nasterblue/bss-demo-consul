@@ -26,8 +26,8 @@ services:
       - 127.0.0.1:8500:8500
       - 127.0.0.1:8600:8600
     volumes:
-      - /Volumes/DATA/resources/pilot/consul/consul.d/:/consul/config
-    command: "agent -server -ui -node=nasterblue-server -bootstrap-expect=1 -client=0.0.0.0"
+      - ./consul.d/:/consul/config
+    command: "agent -enable-script-checks -server -ui -node=nasterblue-server -bootstrap-expect=1 -client=0.0.0.0"
 
 volumes:
   rabbitmq:
